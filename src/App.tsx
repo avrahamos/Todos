@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { Add } from "./componenets/Add";
+import { List } from "./componenets/List";
+import Todo from "./models/tosoModel";
 
 export default function App() {
-  return <div>App</div>;
+  const [todo, setTodo] = useState<Todo[]>([]);
+  return (
+    <div className="app">
+      <Add />
+      <List />
+    </div>
+  );
 }
