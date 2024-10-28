@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "../models/tosoModel";
+import moment from "moment";
 
 interface Props {
   todo: Todo;
@@ -26,8 +27,10 @@ export const Item = ({ todo, setTodos }: Props) => {
         checked={todo.completed}
         onChange={(e) => handleCompletedChage(e.target.checked)}
       />
-      <p>{todo.title}</p>
-      <p>{todo.created_at.toLocaleString()}</p>
+      <p style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+        {todo.title}
+      </p>
+      <p>{moment(todo.created_at).fromNow()}</p>
       <button onClick={handleDelete}>Delete</button>
     </div>
   );
